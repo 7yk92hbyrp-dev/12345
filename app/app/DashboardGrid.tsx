@@ -348,6 +348,11 @@ export default function DashboardGrid({ userId }: DashboardGridProps) {
   if (!mounted) return null
 
   const openSlot = (id: string) => {
+    // train opens the full logger page rather than the sealed overlay
+    if (id === 'train') {
+      window.location.href = '/logger.html'
+      return
+    }
     if (filled[id]) setOpenId(id)
     else setConnectId(id)
   }
